@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tela Inicial</title>
+  <link rel="stylesheet" href="../principal/css/styles.scss" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="../principal/css/style.css" rel="stylesheet">
+  <link href="../principal/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href=" https://cdn.jsdelivr.net/npm/formvalidation@0.6.2-dev/dist/css/formValidation.min.css " rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <style>
+    .required::after {
+      content: "*";
+      color: red;
+      margin-left: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+   <div class="lateral-menu active" id="lateral-menu">
+  <header>
+  
+    <nav>
+      <h5 class="logo"><i data-feather="codesandbox"></i> INTRANET</h5>
+      <a id="menu"><i class="menu" data-feather="menu"></i></a>
+    </nav>
+  </header>
+
+  <ul>
+    <li><i data-feather="archive"></i> <a href="../users/"><span>Users</span></a></li>
+  </ul>
+
+  <footer>
+    <div class="text">
+    <br>
+      <h5>Letícia Lima</h5>
+      <p>Desenvolvedora FullStack</p>
+    </div>
+  </footer>
+</div>
+
+    <div class="content">
+
+       <div id="content">
+
+   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+     <form class="form-inline">
+       <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+         <i class="fa fa-bars"></i>
+       </button>
+     </form>
+
+     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+       <div class="input-group">
+         <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar..." aria-label="Search" aria-describedby="basic-addon2">
+         <div class="input-group-append">
+           <button class="btn btn-primary" type="button">
+             <i class="fas fa-search fa-sm"></i>
+           </button>
+         </div>
+       </div>
+     </form>
+
+     <ul class="navbar-nav ml-auto">
+
+       <li class="nav-item dropdown no-arrow d-sm-none">
+         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="fas fa-search fa-fw"></i>
+         </a>
+         <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+           <form class="form-inline mr-auto w-100 navbar-search">
+             <div class="input-group">
+               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+               <div class="input-group-append">
+                 <button class="btn btn-primary" type="button">
+                   <i class="fas fa-search fa-sm"></i>
+                 </button>
+               </div>
+             </div>
+           </form>
+         </div>
+       </li>
+
+       <div class="topbar-divider d-none d-sm-block"></div>
+
+       <li class="nav-item dropdown no-arrow">
+         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <span class="mr-2 d-none d-lg-inline text-gray-600 small">Letícia Lima</span>
+           <img class="img-profile rounded-circle" src="../principal/assets/images/undraw_profile_1.svg">
+         </a>
+       </li>
+
+     </ul>
+
+   </nav>
+
+   <div class="container-fluid">
+
+     <h1 class="h3 mb-2 text-gray-800">Cadastro de Funcionários</h1>
+
+
+     <div class="card shadow mb-4">
+       <div class="card-header py-3" style="display: flex; justify-content: flex-end">
+         <button type="button" class="btn btn-success" style="gap: 15px" data-toggle="modal" data-target="#exampleModal">
+           <i class="bi bi-plus-circle">
+             <span class="path1"></span>
+             <span class="path2"></span>
+             <span class="path3"></span>
+             <span class="path4"></span></i>
+           Adicionar novo funcionário
+         </button>
+       </div>
+       <div class="card-body">
+         <div class="table-responsive">
+           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+             <thead>
+               <tr>
+                 <th></th>
+                 <th>Nome</th>
+                 <th>Cpf</th>
+                 <th>Data Nascimento</th>
+                 <th>Email</th>
+                 <th>Data Cadastro</th>
+                 <th>Operar</th>
+               </tr>
+             </thead>
+             <tbody>
+
+             </tbody>
+           </table>
+         </div>
+       </div>
+
+     </div>
+
+   </div>
+
+ </div>
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Cadastro de Funcionários</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <form id="formCadastro">
+           <div class="form-row">
+             <div class="fv-row form-group col-md-6">
+               <label class="required">Nome</label>
+               <input type="text" class="form-control" name="nome" id="nome" placeholder="Adicione o nome do funcionário...">
+             </div>
+             <div class="fv-row form-group col-md-6">
+               <label class="required">Cpf</label>
+               <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Adicione p cpf do funcionário...">
+             </div>
+           </div>
+           <div class="fv-row form-group">
+             <label class="required">Data Nascimento</label>
+             <input type="date" class="form-control" name="data_nascimento" id="data_nascimento" placeholder="Adicione a data de nascimento do funcionário...">
+           </div>
+           <div class="fv-row form-group">
+             <label class="required">Email</label>
+             <input type="email" class="form-control" name="email" id="email" placeholder="Adicione o email do funcionário...">
+           </div>
+
+
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+         <button type="button" class="btn btn-primary" id="register">Salvar</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="updateModalLabel">Atualização de Funcionários</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <form id="formAtualização">
+           <div class="form-row">
+             <div class="fv-row form-group col-md-6">
+               <label class="required">Nome</label>
+               <input type="text" class="form-control" name="nome_update" id="nome_update" placeholder="Adicione o nome do funcionário...">
+             </div>
+             <div class="fv-row form-group col-md-6">
+               <label class="required">Cpf</label>
+               <input type="text" class="form-control" name="cpf_update" id="cpf_update" placeholder="Adicione o cpf do funcionário...">
+             </div>
+           </div>
+           <div class="fv-row form-group">
+             <label class="required">Data Nascimento</label>
+             <input type="date" class="form-control" name="dataNascimento_update" id="dataNascimento_update" placeholder="Adicione a data de nascimento do funcionário...">
+           </div>
+           <div class="fv-row form-group">
+             <label class="required">Email</label>
+             <input type="text" class="form-control" name="email_update" id="email_update" placeholder="Adicione o email do funcionário...">
+           </div>
+
+
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+         <button type="button" class="btn btn-primary" id="update">Salvar</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+    </div>
+  </main>
+
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="../principal/js/index.js"></script>
+  <script>
+    feather.replace();
+  </script>
+  <script src="../principal/js/jquery.min.js"></script>
+  <script src="../principal/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../principal/js/jquery.easing.min.js"></script>
+
+  <script src="../principal/js/principal.js"></script>
+
+  <script src="../principal/js/jquery.dataTables.min.js"></script>
+  <script src="../principal/js/dataTables.bootstrap4.min.js"></script>
+
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>
